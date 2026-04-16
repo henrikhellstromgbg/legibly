@@ -1,0 +1,371 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN TOKENS — based on DESIGN.md
+   ============================================ */
+
+:root {
+  /* Typography */
+  --font-sans: var(--font-geist), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', 'SFMono-Regular', Consolas, monospace;
+
+  /* Neutral scale */
+  --color-black:       #000000;
+  --color-neutral-900: #171717;
+  --color-neutral-700: #333333;
+  --color-neutral-500: #4D4D4D;
+  --color-neutral-400: #999999;
+  --color-neutral-200: #4B4C57;
+
+  /* Surfaces */
+  --color-white:          #FFFFFF;
+  --color-surface-off:    #FAFAFA;
+  --color-border:         #EAEAEA;
+  --color-border-subtle:  #EBEBEB;
+
+  /* Semantic / status */
+  --color-link:    #0070F3;
+  --color-warning: #F59E0B;
+  --color-error:   #C50000;
+
+  /* Shadows */
+  --shadow-xs: rgba(0,0,0,0.02);
+  --shadow-sm: rgba(0,0,0,0.04);
+  --shadow-md: rgba(0,0,0,0.08);
+
+  --shadow-level-1: rgb(235,235,235) 0px 0px 0px 1px;
+  --shadow-level-2: rgba(0,0,0,0.04) 0px 2px 2px 0px;
+  --shadow-level-3: rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 2px 0px, rgb(250,250,250) 0px 0px 0px 1px;
+  --shadow-level-4: rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.02) 0px 1px 1px 0px, rgba(0,0,0,0.04) 0px 4px 8px 0px;
+  --shadow-focus:   0 0 0 2px #FFFFFF, 0 0 0 4px #0070F3;
+
+  /* Border radius */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-pill: 9999px;
+
+  /* Spacing */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Container widths */
+  --container-narrow: 720px;
+  --container-default: 1200px;
+  --container-wide: 1400px;
+}
+
+/* ============================================
+   BASE RESET & DEFAULTS
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-neutral-500);
+  background: var(--color-white);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.display {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 68px;
+  letter-spacing: -1.5px;
+  color: var(--color-black);
+}
+
+h1, .h1 {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -1.2px;
+  color: var(--color-black);
+}
+
+h2, .h2 {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -0.8px;
+  color: var(--color-neutral-900);
+}
+
+h3, .h3 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+  color: var(--color-neutral-900);
+}
+
+h4, .h4 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.3px;
+  color: var(--color-neutral-900);
+}
+
+.body-large {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.1px;
+  color: var(--color-neutral-500);
+}
+
+.body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-neutral-500);
+}
+
+.body-small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-neutral-500);
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--color-neutral-400);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-neutral-400);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  box-shadow: var(--shadow-focus);
+  outline: none;
+}
+
+.btn:disabled {
+  background-color: var(--color-border);
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-neutral-700);
+}
+
+.btn-primary:active:not(:disabled) {
+  background-color: var(--color-neutral-900);
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-neutral-900);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--color-neutral-900);
+}
+
+.btn-secondary:active:not(:disabled) {
+  background-color: var(--color-surface-off);
+}
+
+/* ============================================
+   INPUTS
+   ============================================ */
+
+.input {
+  font-family: var(--font-geist), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-neutral-900);
+  width: 100%;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input::placeholder {
+  color: var(--color-neutral-400);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-color: transparent;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-level-2);
+}
+
+.card-elevated {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-level-4);
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-neutral-500);
+}
+
+.badge-dark {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.badge-blue {
+  background: var(--color-white);
+  color: var(--color-link);
+  border-color: var(--color-link);
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+   ============================================ */
+
+.container {
+  max-width: var(--container-default);
+  margin: 0 auto;
+  padding: 0 var(--space-12);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 0 var(--space-12);
+}
+
+/* ============================================
+   DIVIDERS
+   ============================================ */
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+a.link {
+  color: var(--color-link);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  transition: opacity 150ms ease;
+}
+
+a.link:hover {
+  opacity: 0.8;
+}
+
+a.link:focus-visible {
+  box-shadow: var(--shadow-focus);
+  outline: none;
+  border-radius: 2px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
